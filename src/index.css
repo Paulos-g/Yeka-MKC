@@ -1,12 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@300;400;500;600;700;800&family=Noto+Sans+Ethiopic:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 @import "tailwindcss";
-
 @theme {
-  --font-cinzel: "Cinzel", serif;
   --font-cormorant: "Cormorant Garamond", serif;
-  --font-playfair: "Playfair Display", serif;
-  --font-manrope: "Manrope", sans-serif;
-  --font-jakarta: "Plus Jakarta Sans", sans-serif;
-  --font-amharic: "Noto Sans Ethiopic", sans-serif;
 }
-
+@theme {
+  --font-pt-serif: "PT Serif", serif;
+  --font-jost: "Jost", sans-serif;
+}
