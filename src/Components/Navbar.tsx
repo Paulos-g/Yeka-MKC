@@ -5,9 +5,8 @@ import { FaUser, FaGlobe } from "react-icons/fa";
 
 function Nav() {
   return (
-    <header className="sticky top-0 z-50 bg-white/60 backdrop-blur-xl border-b  shadow-lg border-white/30">
+    <header className="sticky top-0 z-100 bg-white/60 backdrop-blur-xl border-b  shadow-lg border-white/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
-        {/* Logo and Brand Name */}
         <Link to="/" className="flex items-center gap-3 group">
           <img
             src={MKC}
@@ -19,7 +18,6 @@ function Nav() {
           </span>
         </Link>
 
-        {/* Navigation Links */}
         <nav className="hidden md:flex items-center gap-8">
           <Link
             to="/"
