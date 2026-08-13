@@ -33,7 +33,10 @@ function About() {
         Our <span className="text-blue-400"> Leaderships</span>
       </h1>
       <p className="text-center text-2xl text-gray-500 mt-5 mb-20">
-        These Guide Our community as Church
+        Meet Our Welcoming church{" "}
+        <span className="text-blue-400 font-great-vibes text-5xl">
+          Leadership
+        </span>
       </p>
       <Leadership />
 
