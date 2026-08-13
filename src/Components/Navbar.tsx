@@ -21,7 +21,7 @@ function Nav() {
 
         <nav className="hidden md:flex items-center gap-8">
           <Link
-            to="/"
+            to="/Home"
             className="font-manrope text-sm font-semibold text-gray-900 relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#C9A253]"
           >
             Home

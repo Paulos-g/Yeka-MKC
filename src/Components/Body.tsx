@@ -47,7 +47,7 @@ function BOdy() {
         A Place to Belong
       </h2>
       <HeadingUnderline />
-      <div className="mt-32 flex mb-32 justify-around">
+      <div className="mt-32 flex mb-32 justify-around flex-wrap gap-6">
         <div className="">
           <SmallText text="WELCOME" />
           <h2 className="text-4xl font-pt-serif ">
@@ -81,7 +81,7 @@ function BOdy() {
       </h2>
       <HeadingUnderline />{" "}
       <div
-        className="flex justify-around mt-8
+        className="flex  flex-wrap justify-around mt-8 gap-6
         "
       >
         {churchData.map((church, id) => (

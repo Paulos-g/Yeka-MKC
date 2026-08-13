@@ -12,3 +12,8 @@
   --font-jost: "Jost", sans-serif;
   --font-great-vibes: "Great Vibes", cursive;
 }
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
