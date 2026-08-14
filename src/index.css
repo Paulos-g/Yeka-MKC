@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
+@import "tailwindcss";
+@theme {
+  --font-cormorant: "Cormorant Garamond", serif;
+}
+@theme {
+  --font-pt-serif: "PT Serif", serif;
+  --font-jost: "Jost", sans-serif;
+  --font-great-vibes: "Great Vibes", cursive;
+}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
