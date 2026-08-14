@@ -1,11 +1,13 @@
+import { type IconType } from "react-icons";
 interface CardProps {
   data: {
     id: number;
     img?: string;
     name: string;
     tag: string;
-    time: string;
-    description: string;
+    time?: string;
+    description?: string;
+    Icon?: IconType;
   }[];
 }
 

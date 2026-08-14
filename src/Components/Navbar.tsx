@@ -22,37 +22,32 @@ function Nav() {
         <nav className="hidden md:flex items-center gap-8">
           <Link
             to="/Home"
-            className="font-manrope text-sm font-semibold text-gray-900 relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#C9A253]"
+            className="font-manrope text-base font-bold  text-gray-900 relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#C9A253]"
           >
             Home
           </Link>
           <Link
             to="/about"
-            className="font-manrope text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors duration-200"
+            className="font-manrope text-base font-bold text-gray-600 hover:text-gray-900 transition-colors duration-200"
           >
             About
           </Link>
           <Link
             to="/services"
-            className="font-manrope text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors duration-200"
+            className="font-manrope text-base font-bold text-gray-600 hover:text-gray-900 transition-colors duration-200"
           >
             Services
           </Link>
-          <Link
-            to="/partner"
-            className="font-manrope text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors duration-200"
-          >
-            Partner
-          </Link>
+
           <Link
             to="/donate"
-            className="font-manrope text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors duration-200"
+            className="font-manrope text-base font-bold text-gray-600 hover:text-gray-900 transition-colors duration-200"
           >
             Donate
           </Link>
           <Link
             to="/contact"
-            className="font-manrope text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors duration-200"
+            className="font-manrope text-base font-bold text-gray-600 hover:text-gray-900 transition-colors duration-200"
           >
             Contact
           </Link>

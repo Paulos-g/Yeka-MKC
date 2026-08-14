@@ -38,7 +38,7 @@ function Core() {
         className="flex  flex-wrap justify-around mt-8 gap-6
         "
       >
-        {churchData.map((church, id) => (
+        {churchData.map((church) => (
           <div
             key={church.id}
             className="bg-white max-w-82 h-52 rounded-2xl shadow-xl hover:bg-amber-100 transition-all ease-in-out duration-300"

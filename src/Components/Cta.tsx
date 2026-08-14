@@ -1,10 +1,9 @@
-import { HiUnderline } from "react-icons/hi2";
 import HeadingUnderline from "./HeadingLine";
 import Buttons from "./Button";
 import { FaArrowRight } from "react-icons/fa";
 interface ctaProp {
-  Header: String;
-  SmallHead: String;
+  Header: string;
+  SmallHead: string;
 }
 export function CTA({ Header, SmallHead }: ctaProp) {
   return (

@@ -1,6 +1,6 @@
 interface Props {
-  className: String;
-  text: String;
+  className?: string;
+  text: string;
 }
 
 function SmallText({ text, className = "" }: Props) {
