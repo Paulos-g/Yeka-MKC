@@ -25,3 +25,5 @@ uploads/
 # Build output (if you ever add one)
 dist/
 build/
+
+/src/generated/prisma

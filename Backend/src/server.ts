@@ -1,4 +1,6 @@
 import express from "express";
+import { Prisma } from "@prisma/client/extension";
+import { checkSupabaseConnection } from "./configs/supabase";
 
 const app = express();
 
@@ -9,6 +11,12 @@ app.get("/", (req, res) => {
   res.sendStatus(404);
 });
 
-app.listen(PORT, () => {
-  console.log(`Server stated listnenig on port ${PORT}`);
-});
+const startServer = async () => {
+  await checkSupabaseConnection();
+
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+};
+
+startServer();
