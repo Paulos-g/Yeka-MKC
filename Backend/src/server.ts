@@ -7,8 +7,8 @@ const app = express();
 const PORT = 8989;
 
 app.get("/", (req, res) => {
-  res.send("Hello from Typescript backend");
-  res.sendStatus(404);
+  // res.send("Hello from Typescript backend");
+  res.sendStatus(200);
 });
 
 const startServer = async () => {
