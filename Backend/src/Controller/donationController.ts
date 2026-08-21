@@ -41,7 +41,7 @@ export const initializeDonation = async (req: Request, res: Response) => {
     // Generate values on the backend
     const donor_name = `${donor_firstName} ${donor_lastName}`;
     const status = "pending";
-    const tx_ref = `church-donation-${uuidv4()}`;
+    const tx_ref = `donation-${uuidv4()}`;
 
     // 1. Save pending donation
     const { data: donation, error } = await supabase
