@@ -18,7 +18,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
         <Route path="/donate" element={<Donation />} />
-        <Route path="/donation-success" element={<DonationSuccess />} />
+        <Route path="/success" element={<DonationSuccess />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
     </BrowserRouter>
