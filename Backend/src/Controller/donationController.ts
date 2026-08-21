@@ -3,6 +3,8 @@ import { Request, Response } from "express";
 import { supabase } from "../configs/supabase";
 import { v4 as uuidv4 } from "uuid";
 
+dotenv.config();
+
 interface DonationFormData {
   amount: number;
   donation_purpose: string;
@@ -11,17 +13,6 @@ interface DonationFormData {
   donor_phone: string;
   currency?: string;
 }
-interface Donation {
-  id: string;
-  donor_name: string;
-  donor_phone_number: string;
-  amount: number;
-  currency: string;
-  status: "pending" | "completed" | "failed";
-  tx_ref: string;
-  created_at: string;
-}
-dotenv.config();
 
 export const initializeDonation = async (req: Request, res: Response) => {
   try {
@@ -34,7 +25,7 @@ export const initializeDonation = async (req: Request, res: Response) => {
       currency = "ETB",
     } = req.body as DonationFormData;
 
-    // Validate user input
+    // Validate input
     if (
       !donor_firstName ||
       !donor_lastName ||
@@ -47,12 +38,12 @@ export const initializeDonation = async (req: Request, res: Response) => {
       });
     }
 
-    // Create values on the backend
+    // Generate values on the backend
     const donor_name = `${donor_firstName} ${donor_lastName}`;
-    const status: Donation["status"] = "pending";
+    const status = "pending";
     const tx_ref = `church-donation-${uuidv4()}`;
 
-    // Save pending donation
+    // 1. Save pending donation
     const { data: donation, error } = await supabase
       .from("donations")
       .insert({
@@ -73,12 +64,56 @@ export const initializeDonation = async (req: Request, res: Response) => {
       });
     }
 
+    // 2. Initialize payment with Chapa
+    const chapaResponse = await fetch(process.env.CHAPA_BASE_URL!, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${process.env.CHAPA_SECRET_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        amount: amount.toString(),
+        currency,
+        first_name: donor_firstName,
+        last_name: donor_lastName,
+        phone_number: donor_phone,
+        tx_ref,
+
+        // callback_url: `${process.env.BACKEND_URL}/api/donations/callback`, // to telll if the transaction is completed or not for my backend.
+
+        return_url: `${process.env.FRONTEND_URL}/donation`, // send my customer back to my website
+
+        customization: {
+          title: "Church Donation",
+          description: donation_purpose,
+        },
+      }),
+    });
+
+    const chapaData = await chapaResponse.json();
+
+    if (!chapaResponse.ok) {
+      return res.status(400).json({
+        error: "Failed to initialize Chapa payment",
+        details: chapaData,
+      });
+    }
+
+    // 3. Give checkout URL to frontend
     return res.status(201).json({
       donation,
+      checkout_url: chapaData.data.checkout_url, // to redirect my customer to chapa's payment page
     });
   } catch (error) {
+    console.error(error);
+
     return res.status(500).json({
       error: "Internal server error",
     });
   }
+};
+
+export const payment = async (req: Request, res: Response) => {
+  try {
+  } catch (error) {}
 };
