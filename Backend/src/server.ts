@@ -3,12 +3,22 @@ import { Prisma } from "@prisma/client/extension";
 import { checkSupabaseConnection } from "./configs/supabase";
 import donationRoute from "./Routes/donationRoute";
 import dotenv from "dotenv";
-
+import { setServers } from "node:dns/promises";
+import cors from "cors";
 dotenv.config();
+
+setServers(["1.1.1.1", "8.8.8.8"]); // used because the DNS resolver of windows is unable to resolve the mongodb domain.
 
 const app = express();
 
 app.use(express.json());
+
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  }),
+);
 
 app.use("/api/donations", donationRoute);
 
@@ -19,8 +29,6 @@ app.get("/", (req, res) => {
   // res.send("Hello from Typescript backend");
   res.sendStatus(200);
 });
-
-console.log(process.env.CHAPA_SECRET_KEY);
 
 const startServer = async () => {
   await checkSupabaseConnection();

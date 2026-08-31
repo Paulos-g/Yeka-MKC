@@ -102,6 +102,8 @@ export const initializeDonation = async (req: Request, res: Response) => {
     // 3. Give checkout URL to frontend
     return res.status(201).json({
       donation,
+      success: true,
+
       checkout_url: chapaData.data.checkout_url, // to redirect my customer to chapa's payment page
     });
   } catch (error) {

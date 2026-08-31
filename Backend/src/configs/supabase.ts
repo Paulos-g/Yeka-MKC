@@ -15,10 +15,10 @@ if (!supabaseUrl || !supabaseKey) {
 export const supabase = createClient(supabaseUrl, supabaseKey);
 
 export async function checkSupabaseConnection() {
-  const { error } = await supabase.from("users").select("id").limit(1);
+  const { error } = await supabase.from("users").select("id").limit(1); //"I only need one row
 
   if (error) {
-    console.error(" Supabase connection failed:", error.message);
+    console.error("Supabase connection failed:", error);
     process.exit(1);
   }
 
