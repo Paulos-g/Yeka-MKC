@@ -3,6 +3,7 @@ import { Prisma } from "@prisma/client/extension";
 import { checkSupabaseConnection } from "./configs/supabase.js";
 import donationRoute from "./Routes/donationRoute.js";
 import dotenv from "dotenv";
+import contact from "./Routes/Contact.js";
 import { setServers } from "node:dns/promises";
 import cors from "cors";
 dotenv.config();
@@ -21,6 +22,7 @@ app.use(
 );
 
 app.use("/api/donations", donationRoute);
+app.use("/api/contact", contact);
 
 const PORT = process.env.PORT || 3000;
 console.log("PORT:", PORT);
