@@ -1,4 +1,5 @@
 import axios from "axios";
+import type { Request, Response } from "express";
 import { supabase } from "../configs/supabase";
 
 export const handleDonationCallback = async (req: Request, res: Response) => {
@@ -23,6 +24,9 @@ export const handleDonationCallback = async (req: Request, res: Response) => {
         },
       },
     );
+    console.log("Transaction:", trx_ref);
+    console.log("Chapa Reference:", ref_id);
+    console.log("Status:", status);
 
     const payment = chapaResponse.data;
 

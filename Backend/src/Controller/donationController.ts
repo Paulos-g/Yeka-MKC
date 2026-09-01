@@ -79,7 +79,7 @@ export const initializeDonation = async (req: Request, res: Response) => {
         phone_number: donor_phone,
         tx_ref,
 
-        // callback_url: `${process.env.BACKEND_URL}/api/donations/callback`, // to telll if the transaction is completed or not for my backend.
+        // callback_url: `${process.env.BACKEND_URL}/api/donations/callback`, // to tell if the transaction is completed or not for my backend.
 
         return_url: `${process.env.FRONTEND_URL}/success`, // send my customer back to my website
 
