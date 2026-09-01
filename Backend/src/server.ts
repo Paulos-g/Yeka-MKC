@@ -1,7 +1,7 @@
 import express from "express";
 import { Prisma } from "@prisma/client/extension";
 import { checkSupabaseConnection } from "./configs/supabase.js";
-import donationRoute from "./Routes/donationRoute";
+import donationRoute from "./Routes/donationRoute.js";
 import dotenv from "dotenv";
 import { setServers } from "node:dns/promises";
 import cors from "cors";
