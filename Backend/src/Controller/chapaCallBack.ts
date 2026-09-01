@@ -1,6 +1,6 @@
 import axios from "axios";
 import type { Request, Response } from "express";
-import { supabase } from "../configs/supabase";
+import { supabase } from "../configs/supabase.js";
 
 export const handleDonationCallback = async (req: Request, res: Response) => {
   try {

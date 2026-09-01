@@ -1,5 +1,5 @@
-import { handleDonationCallback } from "../Controller/chapaCallBack";
-import { initializeDonation } from "../Controller/donationController";
+import { handleDonationCallback } from "../Controller/chapaCallBack.js";
+import { initializeDonation } from "../Controller/donationController.js";
 import { Router } from "express";
 
 const router = Router();
