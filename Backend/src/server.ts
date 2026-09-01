@@ -1,6 +1,6 @@
 import express from "express";
 import { Prisma } from "@prisma/client/extension";
-import { checkSupabaseConnection } from "./configs/supabase";
+import { checkSupabaseConnection } from "./configs/supabase.js";
 import donationRoute from "./Routes/donationRoute";
 import dotenv from "dotenv";
 import { setServers } from "node:dns/promises";
