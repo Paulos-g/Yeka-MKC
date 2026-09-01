@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 import { Request, Response } from "express";
-import { supabase } from "../configs/supabase";
+import { supabase } from "../configs/supabase.js";
 import { v4 as uuidv4 } from "uuid";
 
 dotenv.config();
