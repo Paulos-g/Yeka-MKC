@@ -474,13 +474,7 @@ Unless otherwise stated, the source code, branding, images, and other church-spe
 
 Special thanks to the technologies and services that make this project possible:
 
-* [React](https://react.dev/)
-* [TypeScript](https://www.typescriptlang.org/)
-* [Tailwind CSS](https://tailwindcss.com/)
-* [Node.js](https://nodejs.org/)
-* [Express.js](https://expressjs.com/)
-* [PostgreSQL](https://www.postgresql.org/)
-* [Supabase](https://supabase.com/)
+
 * [Chapa](https://chapa.co/)
 
 ---
