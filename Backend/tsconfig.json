@@ -3,8 +3,6 @@
     "rootDir": "./src",
     "outDir": "./dist",
 
-    "allowImportingTsExtensions": true,
-
     "module": "ESNext",
     "moduleResolution": "bundler",
     "target": "ES2023",
