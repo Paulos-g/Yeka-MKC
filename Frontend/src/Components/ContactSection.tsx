@@ -5,7 +5,8 @@ import {
   FaMapMarkerAlt,
   FaPhoneAlt,
 } from "react-icons/fa";
-
+import { useState, type FormEvent } from "react";
+import api from "../lib/axios";
 interface InfoCardProps {
   title: string;
   lines: string[];
@@ -36,17 +37,17 @@ const contactCards = [
   {
     title: "Address",
     icon: FaMapMarkerAlt,
-    lines: ["XMVJ+C2M, Addis Ababa", "Alemankarea, Ethiopia"],
+    lines: ["YBTK+P2M, Addis Ababa", "Sholla Begtera, Ethiopia"],
   },
   {
     title: "Phone",
     icon: FaPhoneAlt,
-    lines: ["+251-11-XXX-XXXX", "+251-9XX-XXX-XXX"],
+    lines: ["+251-11-456-7890", "+251-912-345-678"],
   },
   {
     title: "Email",
     icon: FaEnvelope,
-    lines: ["info@alembankchurch.org", "pastor@alembankchurch.org"],
+    lines: ["info@yekamkcchurch.org"],
   },
   {
     title: "Office Hours",
@@ -56,6 +57,33 @@ const contactCards = [
 ];
 
 function ContactSection() {
+  const [full_name, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      await api.post(
+        "/contact/post",
+        {
+          full_name,
+          email,
+          message,
+        },
+        { withCredentials: true },
+      );
+      alert("We'll contact you be blessed!");
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
@@ -75,12 +103,14 @@ function ContactSection() {
             Send us a Message
           </h2>
 
-          <div className="mt-8 space-y-6">
+          <form onSubmit={handleSubmit} className="mt-8 space-y-6">
             <div>
               <label className="mb-2 block text-lg font-medium text-slate-700">
                 Full Name
               </label>
               <input
+                value={full_name}
+                onChange={(e) => setFullName(e.target.value)}
                 type="text"
                 placeholder="Your full name"
                 className="w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-4 text-lg text-slate-700 outline-none transition focus:border-blue-400 focus:bg-white"
@@ -93,6 +123,8 @@ function ContactSection() {
               </label>
               <input
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Your email address"
                 className="w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-4 text-lg text-slate-700 outline-none transition focus:border-blue-400 focus:bg-white"
               />
@@ -104,18 +136,21 @@ function ContactSection() {
               </label>
               <textarea
                 rows={5}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
                 placeholder="Write your message here"
                 className="w-full resize-none rounded-xl border border-slate-300 bg-slate-50 px-4 py-4 text-lg text-slate-700 outline-none transition focus:border-blue-400 focus:bg-white"
               />
             </div>
 
             <button
-              type="button"
+              type="submit"
+              disabled={loading}
               className="rounded-full bg-blue-500 px-7 py-3.5 text-lg font-semibold text-white transition hover:bg-blue-600"
             >
-              Send Message
+              {loading ? "Sending..." : "Send Message"}
             </button>
-          </div>
+          </form>
         </div>
 
         <div className="rounded-[26px] border border-slate-200 bg-white p-8 shadow-[0_6px_18px_rgba(15,23,42,0.03)]">
