@@ -11,7 +11,22 @@ interface DonationFormData {
   donor_firstName: string;
   donor_lastName: string;
   donor_phone: string;
+  donor_email: string;
   currency?: string;
+}
+
+function toChapaPhone(phone: string) {
+  const digits = phone.replace(/\D/g, "");
+
+  if (digits.startsWith("251") && digits.length === 12) {
+    return `0${digits.slice(3)}`;
+  }
+
+  if (digits.startsWith("0") && digits.length === 10) {
+    return digits;
+  }
+
+  return digits;
 }
 
 export const initializeDonation = async (req: Request, res: Response) => {
@@ -20,15 +35,19 @@ export const initializeDonation = async (req: Request, res: Response) => {
       donor_firstName,
       donor_lastName,
       donor_phone,
+      donor_email,
       amount,
       donation_purpose,
+      currency = "ETB",
     } = req.body as DonationFormData;
 
-    // Validate input
+    const phone_number = toChapaPhone(donor_phone);
+
     if (
       !donor_firstName ||
       !donor_lastName ||
       !donor_phone ||
+      !donor_email ||
       !amount ||
       !donation_purpose
     ) {
@@ -37,7 +56,12 @@ export const initializeDonation = async (req: Request, res: Response) => {
       });
     }
 
-    // Generate values on the backend
+    if (!/^0[79]\d{8}$/.test(phone_number)) {
+      return res.status(400).json({
+        error: "Phone must be 09xxxxxxxx or 07xxxxxxxx",
+      });
+    }
+
     const donor_name = `${donor_firstName} ${donor_lastName}`;
     const status = "pending";
     const tx_ref = `donation-${uuidv4()}`;
@@ -47,8 +71,8 @@ export const initializeDonation = async (req: Request, res: Response) => {
       .from("donations")
       .insert({
         donor_name,
-        donor_phone_number: donor_phone,
-        amount,
+        donor_phone_number: phone_number,
+        amount: Number(amount),
         donation_purpose,
         status,
         tx_ref,
@@ -70,17 +94,17 @@ export const initializeDonation = async (req: Request, res: Response) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        amount: amount.toString(),
+        amount: String(amount),
+        currency,
+        email: donor_email,
         first_name: donor_firstName,
         last_name: donor_lastName,
-        phone_number: donor_phone,
+        phone_number,
         tx_ref,
-
-        callback_url: `${process.env.BACKEND_URL}/api/donations/callback`, // Chapa's server sends a request here (server-to-server) after payment, so my backend can verify the tx_ref and update the DB status.
-        return_url: `${process.env.FRONTEND_URL}/success`, // send my customer back to my website
-
+        callback_url: `${process.env.BACKEND_URL}/api/donations/callback`,
+        return_url: `${process.env.FRONTEND_URL}/success`,
         customization: {
-          title: "Church Donation",
+          title: "MKC Donation",
           description: donation_purpose,
         },
       }),
