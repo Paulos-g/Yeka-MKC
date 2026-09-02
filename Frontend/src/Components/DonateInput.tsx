@@ -1,14 +1,10 @@
-import { FaCreditCard, FaLock } from "react-icons/fa";
-import Buttons from "./Button";
+import { FaCreditCard } from "react-icons/fa";
 import { useState, type FormEvent } from "react";
 import api from "../lib/axios";
-import { useNavigate } from "react-router-dom";
 
 const amounts = [100, 250, 500, 1000, 2500, 5000];
 
 function DonationInput() {
-  const navigate = useNavigate();
-
   const [amount, setAmount] = useState<string>("");
   const [donation_purpose, setPurpose] = useState("");
   const [donor_firstName, setFirstName] = useState("");
