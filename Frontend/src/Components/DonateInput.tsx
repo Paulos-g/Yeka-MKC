@@ -10,8 +10,7 @@ function DonationInput() {
   const [donor_firstName, setFirstName] = useState("");
   const [donor_lastName, setLastName] = useState("");
   const [donor_phone, setPhone] = useState("");
-  const [loading, setLoading] = useState(false);
-
+  const [, setLoading] = useState(false);
   const handleAmountClick = (choice: number) => {
     setAmount(String(choice));
   };
