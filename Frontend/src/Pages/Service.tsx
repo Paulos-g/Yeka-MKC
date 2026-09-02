@@ -18,16 +18,25 @@ function Services() {
         Desc="See Below about our Week and Anuall programs"
       />
 
-      <h1 className="mt-16 text-4xl font-bold font-cormorant text-center sm:text-5xl md:mt-20">
+      <h1
+        data-aos="fade-down"
+        className="mt-16 text-4xl font-bold font-cormorant text-center sm:text-5xl md:mt-20"
+      >
         Sunday Service
       </h1>
-      <p className="mt-3 text-base font-bold text-gray-500 text-center sm:text-xl">
+      <p
+        data-aos="fade"
+        className="mt-3 text-base font-bold text-gray-500 text-center sm:text-xl"
+      >
         Come And Worship the Lord With Us
       </p>
 
       <ServicesCards />
 
-      <h1 className="mt-16 mb-6 text-4xl font-bold font-cormorant text-center sm:text-5xl md:mt-20 md:mb-10">
+      <h1
+        data-aos="fade-down"
+        className="mt-16 mb-6 text-4xl font-bold font-cormorant text-center sm:text-5xl md:mt-20 md:mb-10"
+      >
         Weekly <span className="text-blue-400">Programs</span>
       </h1>
 

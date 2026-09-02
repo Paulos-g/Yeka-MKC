@@ -1,5 +1,6 @@
 import { FaCreditCard } from "react-icons/fa";
 import { useState, type FormEvent } from "react";
+import axios from "axios";
 import api from "../lib/axios";
 
 const amounts = [100, 250, 500, 1000, 2500, 5000];
@@ -10,7 +11,8 @@ function DonationInput() {
   const [donor_firstName, setFirstName] = useState("");
   const [donor_lastName, setLastName] = useState("");
   const [donor_phone, setPhone] = useState("");
-  const [, setLoading] = useState(false);
+  const [donor_email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
   const handleAmountClick = (choice: number) => {
     setAmount(String(choice));
   };
@@ -25,26 +27,37 @@ function DonationInput() {
           donor_firstName,
           donor_lastName,
           donor_phone,
-          amount,
+          donor_email,
+          amount: Number(amount),
           donation_purpose,
         },
         {
           withCredentials: true,
         },
       );
-      alert("Redirecting to chapa...");
       const checkoutUrl = response.data.checkout_url;
+      if (!checkoutUrl) {
+        throw new Error("No checkout URL returned");
+      }
       window.location.href = checkoutUrl;
     } catch (error) {
-      console.error(error);
+      const message = axios.isAxiosError(error)
+        ? error.response?.data?.error ||
+          error.response?.data?.details?.message ||
+          error.message
+        : "Failed to start payment";
+      alert(message);
     } finally {
       setLoading(false);
     }
   };
   return (
-    <section className="max-w-4xl mx-auto px-6 py-12 mt-28">
+    <section data-aos="fade-up" className="max-w-4xl mx-auto px-6 py-12 mt-28">
       <div className="text-center mb-10">
-        <div className="flex justify-center mb-4">
+        <div
+          data-aos="zoom-in"
+          className="flex justify-center mb-4"
+        >
           <FaCreditCard className="text-5xl text-blue-500" />
         </div>
 
@@ -99,6 +112,7 @@ function DonationInput() {
             <select
               value={donation_purpose}
               onChange={(e) => setPurpose(e.target.value)}
+              required
               className="w-full border border-gray-200 rounded-xl px-4 py-3
             outline-none focus:ring-2 focus:ring-blue-400"
             >
@@ -121,6 +135,7 @@ function DonationInput() {
                 onChange={(e) => setFirstName(e.target.value)}
                 type="text"
                 placeholder="Enter your first name"
+                required
                 className="w-full border border-gray-200 rounded-xl px-4 py-3
               outline-none focus:ring-2 focus:ring-blue-400"
               />
@@ -135,20 +150,36 @@ function DonationInput() {
                 onChange={(e) => setLastName(e.target.value)}
                 type="text"
                 placeholder="Enter your last name"
+                required
                 className="w-full border border-gray-200 rounded-xl px-4 py-3
               outline-none focus:ring-2 focus:ring-blue-400"
               />
             </div>
 
             {/* Phone */}
-            <div className="md:col-span-2">
+            <div>
               <label className="block font-semibold mb-2">Phone Number</label>
 
               <input
                 value={donor_phone}
                 onChange={(e) => setPhone(e.target.value)}
                 type="tel"
-                placeholder="+251912345678"
+                placeholder="0912345678"
+                required
+                className="w-full border border-gray-200 rounded-xl px-4 py-3
+              outline-none focus:ring-2 focus:ring-blue-400"
+              />
+            </div>
+
+            <div>
+              <label className="block font-semibold mb-2">Email</label>
+
+              <input
+                value={donor_email}
+                onChange={(e) => setEmail(e.target.value)}
+                type="email"
+                placeholder="you@example.com"
+                required
                 className="w-full border border-gray-200 rounded-xl px-4 py-3
               outline-none focus:ring-2 focus:ring-blue-400"
               />
@@ -166,9 +197,10 @@ function DonationInput() {
             /> */}
             <button
               type="submit"
+              disabled={loading}
               className="bg-blue-500 px-6 py-3 rounded-full text-white font-[Manrope] font-semibold hover:bg-[#B58F4D] transition duration-300 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed "
             >
-              Proceed to payment
+              {loading ? "Processing..." : "Proceed to payment"}
             </button>
           </div>
 

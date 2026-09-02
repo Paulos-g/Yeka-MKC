@@ -45,6 +45,8 @@ interface ServiceCardProps {
   time: string;
   description: string;
   bullets: string[];
+  animation?: string;
+  delay?: number;
 }
 
 const ServiceCard: React.FC<ServiceCardProps> = ({
@@ -52,9 +54,15 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   time,
   description,
   bullets,
+  animation = "fade-up",
+  delay = 0,
 }) => {
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 md:p-10">
+    <div
+      data-aos={animation}
+      data-aos-delay={delay}
+      className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 md:p-10"
+    >
       <h2 className="text-2xl font-bold text-slate-900 mb-3">{title}</h2>
 
       {/* Time & React Icon */}
@@ -83,13 +91,15 @@ function ServicesCards() {
   return (
     <div className="bg-gray-50 p-8 h-89 mb-30 flex flex-col items-center">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl w-full">
-        {ServicesData.map((service) => (
+        {ServicesData.map((service, index) => (
           <ServiceCard
             key={service.id}
             title={service.title}
             time={service.time}
             description={service.description}
             bullets={service.bullets}
+            animation={index % 2 === 0 ? "fade-right" : "fade-left"}
+            delay={index * 100}
           />
         ))}
       </div>

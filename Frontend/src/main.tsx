@@ -8,10 +8,12 @@ import Donation from "./Pages/Donate";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Contact from "./Pages/Contact.tsx";
 import DonationSuccess from "./Pages/DonationSuccess.tsx";
+import AosInit from "./lib/aos.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
+      <AosInit />
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/Home" element={<App />} />
@@ -22,6 +24,5 @@ createRoot(document.getElementById("root")!).render(
         <Route path="/contact" element={<Contact />} />
       </Routes>
     </BrowserRouter>
-    ,
   </StrictMode>,
 );

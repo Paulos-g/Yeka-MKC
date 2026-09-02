@@ -19,10 +19,12 @@ function App() {
         Header="We'd love to worship the lord with You"
         SmallHead="Come As you're. Join Our family this Sunday"
       />
-      <SmallText
-        text="Explore More Through our Socials"
-        className="!text-3xl !mx-auto !block !mt-6"
-      />
+      <div data-aos="fade">
+        <SmallText
+          text="Explore More Through our Socials"
+          className="!text-3xl !mx-auto !block !mt-6"
+        />
+      </div>
       <Footer />
     </div>
   );

@@ -4,12 +4,15 @@ function History() {
   return (
     <section className="px-4 py-16 md:px-8 lg:px-12">
       <div className="mx-auto max-w-6xl">
-        <h2 className="font-cormorant text-4xl font-bold text-center text-slate-800 md:text-5xl">
+        <h2
+          data-aos="fade-down"
+          className="font-cormorant text-4xl font-bold text-center text-slate-800 md:text-5xl"
+        >
           Our History
         </h2>
 
         <div className="mt-10 grid items-center gap-8 md:gap-10 lg:grid-cols-[1.15fr_0.85fr]">
-          <div className="order-2 lg:order-1">
+          <div data-aos="fade-right" className="order-2 lg:order-1">
             <p className="text-base leading-8 text-slate-700 md:text-lg">
               Meserete Kristos Church (MKC), meaning “Christ is the Foundation,”
               began in Ethiopia through the work of Mennonite missionaries and
@@ -38,7 +41,10 @@ function History() {
             </p>
           </div>
 
-          <div className="order-1 flex justify-center lg:order-2">
+          <div
+            data-aos="fade-left"
+            className="order-1 flex justify-center lg:order-2"
+          >
             <div className="w-full max-w-md overflow-hidden rounded-2xl shadow-lg ring-1 ring-slate-200 bg-slate-100">
               <img
                 className="h-[300px] w-full object-cover sm:h-[360px] lg:h-[420px]"

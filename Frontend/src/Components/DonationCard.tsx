@@ -41,6 +41,8 @@ function DonateCard() {
         return (
           <div
             key={item.id}
+            data-aos="fade-up"
+            data-aos-delay={item.id * 100}
             className="flex-1 min-w-[280px] max-w-[380px] bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-2xl transition duration-300 mt-16"
           >
             <div className="flex justify-center mb-5">

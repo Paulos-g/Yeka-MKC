@@ -6,7 +6,10 @@ const MissionVisionCards: React.FC = () => {
       {/* Container for the cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl w-full">
         {/* Our Mission Card */}
-        <div className="bg-white rounded-xl shadow-md p-8 md:p-10">
+        <div
+          data-aos="fade-right"
+          className="bg-white rounded-xl shadow-md p-8 md:p-10"
+        >
           <h2 className="text-2xl font-bold text-slate-900 mb-5">
             Our Mission
           </h2>
@@ -19,7 +22,10 @@ const MissionVisionCards: React.FC = () => {
         </div>
 
         {/* Our Vision Card */}
-        <div className="bg-white rounded-xl shadow-md p-8 md:p-10">
+        <div
+          data-aos="fade-left"
+          className="bg-white rounded-xl shadow-md p-8 md:p-10"
+        >
           <h2 className="text-2xl font-bold text-slate-900 mb-5">Our Vision</h2>
           <p className="text-slate-600 leading-relaxed">
             To be a thriving, Christ-centered church that transforms lives and

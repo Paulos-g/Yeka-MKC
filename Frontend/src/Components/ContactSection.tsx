@@ -6,16 +6,22 @@ import {
   FaPhoneAlt,
 } from "react-icons/fa";
 import { useState, type FormEvent } from "react";
+import axios from "axios";
 import api from "../lib/axios";
 interface InfoCardProps {
   title: string;
   lines: string[];
   icon: IconType;
+  delay?: number;
 }
 
-function InfoCard({ title, lines, icon: Icon }: InfoCardProps) {
+function InfoCard({ title, lines, icon: Icon, delay = 0 }: InfoCardProps) {
   return (
-    <div className="rounded-[22px] border border-slate-200 bg-white p-8 shadow-[0_6px_18px_rgba(15,23,42,0.03)]">
+    <div
+      data-aos="fade-up"
+      data-aos-delay={delay}
+      className="rounded-[22px] border border-slate-200 bg-white p-8 shadow-[0_6px_18px_rgba(15,23,42,0.03)]"
+    >
       <div className="mb-5 flex justify-center text-blue-500">
         <Icon className="text-4xl" />
       </div>
@@ -78,7 +84,10 @@ function ContactSection() {
       );
       alert("We'll contact you be blessed!");
     } catch (error) {
-      console.error(error);
+      const message = axios.isAxiosError(error)
+        ? error.response?.data?.error || error.message
+        : "Failed to send message";
+      alert(message);
     } finally {
       setLoading(false);
     }
@@ -87,18 +96,22 @@ function ContactSection() {
   return (
     <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-        {contactCards.map((card) => (
+        {contactCards.map((card, index) => (
           <InfoCard
             key={card.title}
             title={card.title}
             icon={card.icon}
             lines={card.lines}
+            delay={index * 80}
           />
         ))}
       </div>
 
       <div className="mt-24 grid gap-8 xl:grid-cols-[1.1fr_0.9fr]">
-        <div className="rounded-[26px] border border-slate-200 bg-white p-8 shadow-[0_6px_18px_rgba(15,23,42,0.03)]">
+        <div
+          data-aos="fade-right"
+          className="rounded-[26px] border border-slate-200 bg-white p-8 shadow-[0_6px_18px_rgba(15,23,42,0.03)]"
+        >
           <h2 className="text-5xl font-bold tracking-tight text-slate-900">
             Send us a Message
           </h2>
@@ -113,6 +126,7 @@ function ContactSection() {
                 onChange={(e) => setFullName(e.target.value)}
                 type="text"
                 placeholder="Your full name"
+                required
                 className="w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-4 text-lg text-slate-700 outline-none transition focus:border-blue-400 focus:bg-white"
               />
             </div>
@@ -126,6 +140,7 @@ function ContactSection() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Your email address"
+                required
                 className="w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-4 text-lg text-slate-700 outline-none transition focus:border-blue-400 focus:bg-white"
               />
             </div>
@@ -139,6 +154,7 @@ function ContactSection() {
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder="Write your message here"
+                required
                 className="w-full resize-none rounded-xl border border-slate-300 bg-slate-50 px-4 py-4 text-lg text-slate-700 outline-none transition focus:border-blue-400 focus:bg-white"
               />
             </div>
@@ -153,7 +169,10 @@ function ContactSection() {
           </form>
         </div>
 
-        <div className="rounded-[26px] border border-slate-200 bg-white p-8 shadow-[0_6px_18px_rgba(15,23,42,0.03)]">
+        <div
+          data-aos="fade-left"
+          className="rounded-[26px] border border-slate-200 bg-white p-8 shadow-[0_6px_18px_rgba(15,23,42,0.03)]"
+        >
           <h2 className="text-5xl font-bold tracking-tight text-slate-900">
             Find Us
           </h2>

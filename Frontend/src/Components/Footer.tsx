@@ -3,7 +3,10 @@ import { FaYoutube, FaInstagram, FaTiktok } from "react-icons/fa";
 function Footer() {
   return (
     <footer className="bg-[#050816] text-white py-20">
-      <div className="container mx-auto px-6 flex min-h-[320px] flex-col md:flex-row justify-between gap-12">
+      <div
+        data-aos="fade-up"
+        className="container mx-auto px-6 flex min-h-[320px] flex-col md:flex-row justify-between gap-12"
+      >
         <div className="max-w-md flex flex-col justify-center">
           <h3 className=" font-cinzel font-extrabold text-4xl mb-16">
             Yeka MKC CHURCH

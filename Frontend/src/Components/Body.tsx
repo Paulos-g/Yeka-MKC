@@ -43,12 +43,15 @@ function BOdy() {
   ];
   return (
     <>
-      <h2 className="text-5xl font-pt-serif text-center mt-8 mb">
+      <h2
+        data-aos="fade-down"
+        className="text-5xl font-pt-serif text-center mt-8 mb"
+      >
         A Place to Belong
       </h2>
       <HeadingUnderline />
       <div className="mt-32 flex mb-32 justify-around flex-wrap gap-6">
-        <div className="">
+        <div data-aos="fade-right" className="">
           <SmallText text="WELCOME" />
           <h2 className="text-4xl font-pt-serif ">
             Where
@@ -68,7 +71,10 @@ function BOdy() {
             with Jesus Christ
           </p>
         </div>
-        <div className="rounded-2xl border-2 border-amber-300 p-1 transition-all duration-500 hover:border-amber-400 hover:shadow-[0_0_30px_rgba(251,191,36,0.6)]">
+        <div
+          data-aos="fade-left"
+          className="rounded-2xl border-2 border-amber-300 p-1 transition-all duration-500 hover:border-amber-400 hover:shadow-[0_0_30px_rgba(251,191,36,0.6)]"
+        >
           <img
             className="rounded-2xl"
             src={worshiping}
@@ -76,7 +82,7 @@ function BOdy() {
           />
         </div>
       </div>
-      <h2 className="text-center text-5xl font-pt-serif">
+      <h2 data-aos="fade-down" className="text-center text-5xl font-pt-serif">
         Our <span className="text-blue-400">Church</span>
       </h2>
       <HeadingUnderline />{" "}
@@ -84,9 +90,11 @@ function BOdy() {
         className="flex  flex-wrap justify-around mt-8 gap-6
         "
       >
-        {churchData.map((church) => (
+        {churchData.map((church, index) => (
           <div
             key={church.id}
+            data-aos="fade-up"
+            data-aos-delay={index * 100}
             className="bg-white max-w-82 h-52 rounded-2xl shadow-xl hover:bg-amber-100 transition-all ease-in-out duration-300"
           >
             <div className="flex justify-center">
@@ -101,7 +109,7 @@ function BOdy() {
           </div>
         ))}
       </div>
-      <div className="flex justify-around mt-32">
+      <div data-aos="fade-up" className="flex justify-around mt-32">
         <div>
           <SmallText text="Join us" className=" !text-xl" />
           <h2 className="text-4xl font-pt-serif ">

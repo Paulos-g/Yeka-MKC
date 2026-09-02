@@ -38,9 +38,11 @@ function Core() {
         className="flex  flex-wrap justify-around mt-8 gap-6
         "
       >
-        {churchData.map((church) => (
+        {churchData.map((church, index) => (
           <div
             key={church.id}
+            data-aos="fade-up"
+            data-aos-delay={index * 100}
             className="bg-white max-w-82 h-52 rounded-2xl shadow-xl hover:bg-amber-100 transition-all ease-in-out duration-300"
           >
             <div className="flex justify-center">

@@ -27,17 +27,29 @@ function About() {
       />
       <History />
       <MissionVisionCards />
-      <h1 className="text-5xl font-cormorant pt-24 text-center font-bold">
+      <h1
+        data-aos="fade-down"
+        className="text-5xl font-cormorant pt-24 text-center font-bold"
+      >
         Our Core <span className="text-blue-400"> Values</span>
       </h1>
-      <p className="text-center text-2xl text-gray-500 mt-5 mb-20">
+      <p
+        data-aos="fade"
+        className="text-center text-2xl text-gray-500 mt-5 mb-20"
+      >
         These Guide Our community as Church
       </p>
       <Core />
-      <h1 className="text-5xl font-cormorant pt-24 text-center font-bold">
+      <h1
+        data-aos="fade-down"
+        className="text-5xl font-cormorant pt-24 text-center font-bold"
+      >
         Our <span className="text-blue-400"> Leaderships</span>
       </h1>
-      <p className="text-center text-2xl text-gray-500 mt-5 mb-20">
+      <p
+        data-aos="fade"
+        className="text-center text-2xl text-gray-500 mt-5 mb-20"
+      >
         Meet Our Welcoming church{" "}
         <span className="text-blue-400 font-great-vibes text-5xl">
           Leadership
