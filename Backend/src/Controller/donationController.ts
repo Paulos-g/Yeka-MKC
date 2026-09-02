@@ -22,7 +22,6 @@ export const initializeDonation = async (req: Request, res: Response) => {
       donor_phone,
       amount,
       donation_purpose,
-      currency = "ETB",
     } = req.body as DonationFormData;
 
     // Validate input
@@ -51,7 +50,6 @@ export const initializeDonation = async (req: Request, res: Response) => {
         donor_phone_number: donor_phone,
         amount,
         donation_purpose,
-        currency,
         status,
         tx_ref,
       })
@@ -73,7 +71,6 @@ export const initializeDonation = async (req: Request, res: Response) => {
       },
       body: JSON.stringify({
         amount: amount.toString(),
-        currency,
         first_name: donor_firstName,
         last_name: donor_lastName,
         phone_number: donor_phone,
