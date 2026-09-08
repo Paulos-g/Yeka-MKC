@@ -77,16 +77,21 @@ function Hero() {
             data-aos-delay="300"
             className="flex flex-wrap items-center gap-4 sm:gap-5"
           >
-            <Buttons
-              text="Join Us This Sunday"
-              icon={FaArrowRight}
-              className="!px-6 !py-3.5 !text-sm !font-semibold !rounded-md"
-            />
-            <Buttons
-              text="Learn More"
-              icon={FaArrowRight}
-              className="  !px-6 !py-3.5 !text-sm !font-semibold !rounded-md !bg-black !border-solid !border-amber-300 !border-2  hover:!bg-amber-800"
-            />
+            <a href="/contact">
+              <Buttons
+                text="Join Us This Sunday"
+                icon={FaArrowRight}
+                className="!px-6 !py-3.5 !text-sm !font-semibold !rounded-md"
+              />{" "}
+            </a>
+
+            <a href="/contact">
+              <Buttons
+                text="Learn More"
+                icon={FaArrowRight}
+                className="  !px-6 !py-3.5 !text-sm !font-semibold !rounded-md !bg-black !border-solid !border-amber-300 !border-2  hover:!bg-amber-800"
+              />
+            </a>
           </div>
         </div>
       </div>
