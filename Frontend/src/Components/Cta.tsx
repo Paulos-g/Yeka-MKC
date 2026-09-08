@@ -7,11 +7,11 @@ interface ctaProp {
 }
 export function CTA({ Header, SmallHead }: ctaProp) {
   return (
-    <div className="bg-black min-h-screen w-screen mt-16 flex flex-col gap-18">
+    <div className="bg-black min-h-screen w-full mt-16 flex flex-col gap-18">
       {" "}
       <br />
       <div data-aos="fade-down">
-        <h2 className=" text-white text-center font-bold text-5xl font-cormorant ">
+        <h2 className="px-4 text-white text-center font-bold text-4xl font-cormorant sm:text-5xl">
           {Header}
         </h2>
         <HeadingUnderline />

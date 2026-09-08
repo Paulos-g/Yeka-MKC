@@ -109,21 +109,24 @@ function BOdy() {
           </div>
         ))}
       </div>
-      <div data-aos="fade-up" className="flex justify-around mt-32">
-        <div>
+      <div
+        data-aos="fade-up"
+        className="mt-32 flex flex-col items-center gap-8 px-4 md:flex-row md:justify-around md:gap-0"
+      >
+        <div className="text-center md:text-left">
           <SmallText text="Join us" className=" !text-xl" />
-          <h2 className="text-4xl font-pt-serif ">
+          <h2 className="text-3xl font-pt-serif sm:text-4xl">
             Sunday{" "}
-            <span className="text-blue-400 font-great-vibes text-5xl">
+            <span className="text-blue-400 font-great-vibes text-4xl sm:text-5xl">
               Worship
             </span>{" "}
             and
-            <span className="text-blue-400 font-great-vibes text-5xl">
+            <span className="text-blue-400 font-great-vibes text-4xl sm:text-5xl">
               Preach
             </span>{" "}
           </h2>
         </div>
-        <div>
+        <div className="w-full max-w-xs">
           <div className="flex items-center gap-3 mb-3">
             <span className="text-amber-300 text-2xl">
               <FaCalendarAlt />
@@ -143,7 +146,7 @@ function BOdy() {
         <Buttons
           text="Get direction"
           icon={FaArrowRight}
-          className=" !text-sm !font-semibold !rounded-md !h-12 !mt-6"
+          className=" !text-sm !font-semibold !rounded-md !h-12 !mt-0"
         />
       </div>
     </>

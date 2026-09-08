@@ -29,29 +29,29 @@ function About() {
       <MissionVisionCards />
       <h1
         data-aos="fade-down"
-        className="text-5xl font-cormorant pt-24 text-center font-bold"
+        className="px-4 text-4xl font-cormorant pt-24 text-center font-bold sm:text-5xl"
       >
         Our Core <span className="text-blue-400"> Values</span>
       </h1>
       <p
         data-aos="fade"
-        className="text-center text-2xl text-gray-500 mt-5 mb-20"
+        className="px-4 text-center text-xl text-gray-500 mt-5 mb-20 sm:text-2xl"
       >
         These Guide Our community as Church
       </p>
       <Core />
       <h1
         data-aos="fade-down"
-        className="text-5xl font-cormorant pt-24 text-center font-bold"
+        className="px-4 text-4xl font-cormorant pt-24 text-center font-bold sm:text-5xl"
       >
         Our <span className="text-blue-400"> Leaderships</span>
       </h1>
       <p
         data-aos="fade"
-        className="text-center text-2xl text-gray-500 mt-5 mb-20"
+        className="px-4 text-center text-xl text-gray-500 mt-5 mb-20 sm:text-2xl"
       >
         Meet Our Welcoming church{" "}
-        <span className="text-blue-400 font-great-vibes text-5xl">
+        <span className="text-blue-400 font-great-vibes text-4xl sm:text-5xl">
           Leadership
         </span>
       </p>

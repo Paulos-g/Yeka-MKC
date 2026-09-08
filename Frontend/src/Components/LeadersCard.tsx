@@ -19,7 +19,7 @@ function Leadership({ data }: CardProps) {
           key={content.id}
           data-aos="fade-up"
           data-aos-delay={(index % 4) * 100}
-          className="bg-white w-90 h-58 rounded-2xl shadow-xl hover:bg-amber-100 transition-all duration-300"
+          className="w-full max-w-90 bg-white h-58 rounded-2xl shadow-xl hover:bg-amber-100 transition-all duration-300"
         >
           {content.img && (
             <img

@@ -16,21 +16,21 @@ function IntroSection({
 }: IntroProps) {
   return (
     <div>
-      <div className="relative h-78 w-screen bg-blue-100">
+      <div className="relative h-78 w-full bg-blue-100">
         {Icon && (
           <span data-aos="zoom-in">
             <Icon
               className={
                 IconAlign === "right"
-                  ? "absolute right-4 top-24 text-5xl text-blue-400 sm:right-12 sm:text-6xl"
-                  : "mx-auto -mb-13 mt-20 text-6xl text-blue-400"
+                  ? "absolute right-4 top-24 text-4xl text-blue-400 sm:right-12 sm:text-6xl"
+                  : "mx-auto -mb-13 mt-20 text-4xl text-blue-400 sm:text-6xl"
               }
             />
           </span>
         )}
         <h1
           data-aos="fade-down"
-          className="text-6xl font-cormorant pt-24 text-center font-bold"
+          className="px-4 text-4xl font-cormorant pt-24 text-center font-bold sm:text-6xl"
         >
           {Header}
         </h1>
